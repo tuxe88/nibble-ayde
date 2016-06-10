@@ -30,4 +30,16 @@ class DefaultController extends Controller
     {
         return $this->render('AydeBundle:Default:resumen.html.twig');
     }
+    
+    /**
+     * @Route("/testing")
+     */
+    public function testingAction()
+    {
+        $crg = new \AydeBundle\Utils\CostReportGenerator();
+        
+        die('dd');
+    }
+    
+    
 }
