@@ -1,0 +1,73 @@
+html{
+    height:100%;
+}
+html p{
+    color:white;
+    text-align: center;
+}
+
+body {
+    background-color: lightblue;
+}
+
+
+#form-center{
+    position: relative;
+    top: 50%;
+    transform: translateY(0%);    
+    background-color: #2d414c;
+    border: 2px solid lightblue;
+}
+
+#form-center h1{
+    color: white;
+    font-size:  20px;
+    text-align: center;
+}
+
+#form-center h2{
+    color: white;
+    font-size:  15px;
+    text-align: center;
+    
+}
+
+#form-center h3{
+    color: white;
+    font-size:  10px;
+    text-align: center;
+}
+
+.separador{
+    border-bottom: 1px solid lightblue;
+    margin-bottom:  15px;
+}
+
+#logo-hcdn-index{
+    position: relative;
+    padding-top: 2%;
+    padding-left: 25%;
+}
+
+#logo-hcdn-index img{
+    width: 70%;
+    height: auto;
+}
+
+#logo-dse-top-right{
+    top:0;
+    right:0;
+    height: 150px;
+}
+
+#logo-dse-top-right img{
+    height: 100%;
+    padding-left: 5%;
+}
+
+.rounded-corners {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+}
