@@ -20,7 +20,14 @@ class DefaultController extends Controller
      */
     public function cargaAction()
     {
-        return $this->render('AydeBundle:Default:carga_proyectos.html.twig');
+        
+        $usuarios= $this->getDoctrine()->getManager()->getRepository('AydeBundle:User')->findAll();
+        
+        $proyectos= $this->getDoctrine()->getManager()->getRepository('AydeBundle:Project')->findAll();
+        
+        
+        return $this->render('AydeBundle:Default:carga_proyectos.html.twig',array("proyectos"=>$proyectos,
+                                                                                    "usuarios"=>$usuarios));
     }
     
     /**

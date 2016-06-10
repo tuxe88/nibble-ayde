@@ -1,19 +1,19 @@
 {% extends "AydeBundle:Default:base.html.twig" %}
 
 {% block content %}
-    
-        <div id="logo-dse-top-right" class="col-xs-offset-3 col-xs-9 col-sm-offset-7 col-sm-1 col-md-offset-9 col-md-1 col-xl-offset-11 col-xl-1">
-                <div id="logo-index">
-                    <h5></h5>
-                </div>
+
+    <div id="logo-dse-top-right" class="col-xs-offset-3 col-xs-9 col-sm-offset-7 col-sm-1 col-md-offset-9 col-md-1 col-xl-offset-11 col-xl-1">
+        <div id="logo-index">
+            <h5></h5>
         </div>
-    
+    </div>
+
     <div class="container" style="background-color: lightblue;">
-    
+
         <div class="row">
-            
+
             <div  class="col-xs-1 col-sm-1 col-md-3" style="background-color: lightblue;"></div>
-            
+
             <div id="form-center" class="col-xs-10 col-sm-10 col-md-6 rounded-corners">
 
                 <div class="row">
@@ -27,64 +27,47 @@
                         <span><h1>AyDE - Carga de proyectos </h1></span>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <form  id="form-login" method="TODO" action="TODO">
                         <div id="form-login">
+
                             
-                            <fieldset>
-                                <h1>Seleccione la semana de carga</h1>
-                                <div class="form-group col-md-4">
-                                    <input type="text" class="form-control col-md-4" placeholder="Search">
+                            
+                            <fieldset class="form-group col-md-offset-1 col-md-10">
+                                <div class="form-group">
+                                    <label for="proyecto1" class="col-md-4 control-label"><h2>Seleccione el dia de carga</h2></label>
+                                    <div class="col-lg-5">
+                                        <input type="input" id="datepicker-dia-carga" class="form-control col-md-6 " placeholder="Click aqui">
+                                    </div>
                                 </div>
                             </fieldset>
                             
                             <fieldset class="form-group col-md-offset-1 col-md-10">
                                 <div class="form-group">
-                                    <label for="proyecto1" class="col-md-4 control-label"><h2>Proyecto alpha:</h2></label>
+                                    <label for="proyecto1" class="col-md-4 control-label"><h2>Seleccione su usuario</h2></label>
                                     <div class="col-lg-5">
-                                        <input type="text" class="form-control col-md-6 " placeholder="porcentaje">
-                                   </div>
+                                        <select class="form-control col-md-6" >
+                                            {% for user in usuarios %}
+                                                <option id="{{user.id}}}">{{user.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
                                 </div>
                             </fieldset>
                             
-                            <fieldset class="form-group col-md-offset-1 col-md-10">
-                                <div class="form-group">
-                                    <label for="proyecto1" class="col-md-4 control-label"><h2>Proyecto beta:</h2></label>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control col-md-6 " placeholder="porcentaje">
-                                   </div>
-                                </div>
-                            </fieldset>
-                            
-                            <fieldset class="form-group col-md-offset-1 col-md-10">
-                                <div class="form-group">
-                                    <label for="proyecto1" class="col-md-4 control-label"><h2>Proyecto gamma:</h2></label>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control col-md-6 " placeholder="porcentaje">
-                                   </div>
-                                </div>
-                            </fieldset>
-                            
-                            <fieldset class="form-group col-md-offset-1 col-md-10">
-                                <div class="form-group">
-                                    <label for="proyecto1" class="col-md-4 control-label"><h2>Proyecto lambda:</h2></label>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control col-md-6 " placeholder="porcentaje">
-                                   </div>
-                                </div>
-                            </fieldset>
-                            
-                            <fieldset class="form-group col-md-offset-1 col-md-10">
-                                <div class="form-group">
-                                    <label for="proyecto1" class="col-md-4 control-label"><h2>Proyecto epsilon:</h2></label>
-                                    <div class="col-lg-5">
-                                        <input type="text" class="form-control col-md-6 " placeholder="porcentaje">
-                                   </div>
-                                </div>
-                            </fieldset>
-                            
-                            
+                            {% for proyecto in proyectos %}
+                                <fieldset class="form-group col-md-offset-1 col-md-10">
+                                    <div class="form-group">
+                                        <label for="proyecto1" class="col-md-4 control-label"><h2>Proyecto {{proyecto.name}}:</h2></label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control col-md-6 " placeholder="porcentaje">
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                            {% endfor %}
+
                             <fieldset class="form-group col-md-offset-1 col-md-10">
                                 <div class="col-md-6" >
                                     <button type="button" class="btn btn-info col-md-12 col-sm-6 col-xs-12">Cargar</button>
@@ -93,16 +76,29 @@
                                     <button type="button" class="btn btn-danger col-md-12 col-sm-6 col-xs-12">Cancelar</button>
                                 </div>
                             </fieldset>
-                            
+
                         </div>
                     </form>
                 </div>    
-               
+
             </div>
-            
+
             <div  class="col-xs-1 col-sm-1 col-md-3" style="background-color: lightblue;"></div>
-                
+
         </div>
-             
+
     </div>
 {% endblock %}
+
+{% block javascript %}
+    
+<script>
+    
+    $('#datepicker-dia-carga').datepicker({
+        dateFormat: 'dd-mm-yy',
+        dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+        monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ]
+    });
+</script>
+    
+{% endblock%}
