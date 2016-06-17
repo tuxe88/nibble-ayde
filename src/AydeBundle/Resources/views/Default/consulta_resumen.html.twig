@@ -1,0 +1,84 @@
+{% extends "AydeBundle:Default:base.html.twig" %}
+
+{% block content %}
+     <div id="logo-dse-top-right" class="col-xs-offset-3 col-xs-9 col-sm-offset-7 col-sm-1 col-md-offset-9 col-md-1 col-xl-offset-11 col-xl-1">
+                <div id="logo-index">
+                    <h5></h5>
+                </div>
+        </div>
+    
+    <div class="container" style="background-color: lightblue;">
+    
+        <div class="row">
+            
+            <div  class="col-xs-1 col-sm-1 col-md-3" style="background-color: lightblue;"></div>
+            
+            <div id="form-center" class="col-xs-10 col-sm-10 col-md-6 rounded-corners">
+
+                <div class="row">
+                    <div id="logo-hcdn-index">
+                        <h1></h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 separador">
+                        <span><h1>AyDE - Generar reporte </h1></span>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <form  form name="consulta-resumen" action="{{ path('_consulta_resumen') }}" method="post">
+                        <div id="form-login">
+       
+                            <fieldset class="form-group col-md-offset-1 col-md-10">
+                                <div class="form-group">
+                                    <label for="proyecto1" class="col-md-4 control-label"><h2>Mes de reporte:</h2></label>
+                                    <div class="col-lg-5">
+                                        <input type="input" id="date-picker-mensual" class="form-control col-md-6 " placeholder="Click aqui">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            
+                            <fieldset class="form-group col-md-offset-1 col-md-10">
+                                <div class="col-md-6" >
+                                    <input type="submit" name="btn-form-carga-proyectos" value="Cargar" type="button" class="btn btn-info col-md-12 col-sm-6 col-xs-12"/>Generar reporte
+                                </div>
+                                <div class="col-md-6" >
+                                    <button type="button" class="btn btn-danger col-md-12 col-sm-6 col-xs-12">Cancelar</button>
+                                </div>
+                            </fieldset>
+
+                            
+                        </div>
+                    </form>
+                    
+                </div>    
+            </div>
+            
+            <div  class="col-xs-1 col-sm-1 col-md-3" style="background-color: lightblue;"></div>
+                
+        </div>
+             
+    </div>
+{
+{% endblock %}
+
+{% block javascript %}
+    
+<script>
+    
+    $('#date-picker-mensual').datepicker({
+        dateFormat: 'dd-mm-yy',
+        dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+        monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+        format: "mm-yyyy",
+        startView: "months", 
+        minViewMode: "months"
+    });
+    
+    
+    
+</script>
+    
+{% endblock%}

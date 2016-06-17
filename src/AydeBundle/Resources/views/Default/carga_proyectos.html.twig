@@ -29,11 +29,9 @@
                 </div>
 
                 <div class="row">
-                    <form  id="form-login" method="TODO" action="TODO">
+                    <form name="carga-proyectos" action="{{ path('_carga') }}" method="post" >
                         <div id="form-login">
 
-                            
-                            
                             <fieldset class="form-group col-md-offset-1 col-md-10">
                                 <div class="form-group">
                                     <label for="proyecto1" class="col-md-4 control-label"><h2>Seleccione el dia de carga</h2></label>
@@ -47,9 +45,9 @@
                                 <div class="form-group">
                                     <label for="proyecto1" class="col-md-4 control-label"><h2>Seleccione su usuario</h2></label>
                                     <div class="col-lg-5">
-                                        <select class="form-control col-md-6" >
+                                        <select id="select-user" class="form-control col-md-6" >
                                             {% for user in usuarios %}
-                                                <option id="{{user.id}}}">{{user.name}}</option>
+                                                <option id="{{user.id}}">{{user.name}}</option>
                                             {% endfor %}
                                         </select>
                                     </div>
@@ -61,7 +59,7 @@
                                     <div class="form-group">
                                         <label for="proyecto1" class="col-md-4 control-label"><h2>Proyecto {{proyecto.name}}:</h2></label>
                                         <div class="col-lg-5">
-                                            <input type="text" class="form-control col-md-6 " placeholder="porcentaje">
+                                            <input type="text"  id="{{proyecto.id}}" class="form-control col-md-6 " placeholder="porcentaje">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -70,7 +68,7 @@
 
                             <fieldset class="form-group col-md-offset-1 col-md-10">
                                 <div class="col-md-6" >
-                                    <button type="button" class="btn btn-info col-md-12 col-sm-6 col-xs-12">Cargar</button>
+                                    <input type="submit" name="btn-form-carga-proyectos" value="Cargar" type="button" class="btn btn-info col-md-12 col-sm-6 col-xs-12"/>Cargar
                                 </div>
                                 <div class="col-md-6" >
                                     <button type="button" class="btn btn-danger col-md-12 col-sm-6 col-xs-12">Cancelar</button>
